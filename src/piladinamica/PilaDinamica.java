@@ -20,40 +20,44 @@ public class PilaDinamica<T> {
 
     /**
      * Indica si esta vacia o no
-     * @return 
+     *
+     * @return
      */
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return top == null;
     }
-    
+
     /**
      * Indica el tamaño
-     * @return 
+     *
+     * @return
      */
-    public int size(){
+    public int size() {
         return this.tamanio;
     }
-    
+
     /**
      * Devuelve el que esta más arriba en la pila
-     * @return 
+     *
+     * @return
      */
-    public T top(){
-        if(isEmpty()){
+    public T top() {
+        if (isEmpty()) {
             return null;
-        }else{
+        } else {
             return top.getElemento();
         }
     }
-    
+
     /**
      * Saca y devuelve el elemento que mas arriba esta en la pila
-     * @return 
+     *
+     * @return
      */
-    public T pop(){
-        if(isEmpty()){
+    public T pop() {
+        if (isEmpty()) {
             return null;
-        }else{
+        } else {
             T elemento = top.getElemento();
             Nodo<T> aux = top.getSiguiente();
             top = null; //marco para borrar
@@ -62,45 +66,44 @@ public class PilaDinamica<T> {
             return elemento;
         }
     }
-    
+
     /**
      * Mete un elemento a la pila
+     *
      * @param elemento
-     * @return 
+     * @return
      */
-    public T push(T elemento){
-        
+    public T push(T elemento) {
+
         Nodo<T> aux = new Nodo<>(elemento, top);
         top = aux; //actualizo el top
         this.tamanio++;
         return aux.getElemento();
     }
-    
+
     /**
      * Devuelve el estado de la pila
-     * @return 
+     *
+     * @return
      */
-    public String toString(){
-        
-        if(isEmpty()){
+    public String toString() {
+
+        if (isEmpty()) {
             return "La pila esta vacia";
-        }else{
-            
-            String resultado="";
+        } else {
+
+            String resultado = "";
             Nodo<T> aux = top;
             //Recorro la pila
-            while(aux!=null){
+            while (aux != null) {
                 resultado += aux.toString();
                 aux = aux.getSiguiente();
             }
-            
+
             return resultado;
-            
+
         }
-        
-        
-        
+
     }
-    
-    
+
 }
